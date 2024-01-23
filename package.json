@@ -16,6 +16,10 @@
     "eslint-plugin-import": "^2.25.2",
     "eslint-plugin-n": "^15.0.0 || ^16.0.0 ",
     "eslint-plugin-promise": "^6.0.0",
-    "typescript": "*"
+    "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "nodemon": "^3.0.3",
+    "ts-node": "^10.9.2"
   }
 }
