@@ -2,13 +2,23 @@
   "name": "seek-prices",
   "version": "1.0.0",
   "description": "Seeking and destroy high prices",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "main": "src/server.ts",
   "keywords": [],
   "author": "Vinicius Duarte",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vinicmd/price-seeker.git"
+  },
+  "bugs": {
+    "url": "https://github.com/vinicmd/price-seeker/issues"
+  },
+  "homepage": "https://github.com/vinicmd/price-seeker#readme",
+  "scripts": {
+    "build": "pnpm install && tsc",
+    "dev": "nodemon src/server.ts",
+    "start": "node dist/server.js"
+  },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^6.4.0",
     "eslint": "^8.0.1",
