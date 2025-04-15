@@ -1,17 +1,18 @@
 import type { Product } from '../../utils/types'
 import { scrapper } from '../scrapper'
 
-export async function scrapperPcdiga(link: string): Promise<Product> {
-  const browser = await scrapper.launch({ headless: true })
+export async function scrapperPcComponentes(link: string): Promise<Product> {
+  const browser = await scrapper.launch({ headless: false })
   const page = await browser.newPage()
   await page.setViewport({ width: 1380, height: 1024 })
-  await page.setUserAgent(
-    'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36'
-  )
+
   await page.goto(link)
-  await page.waitForSelector('h1.font-bold')
+  await page.waitForSelector('#category-list-product-grid')
 
   const data = await page.evaluate(() => {
+    const documents = document.querySelector('#category-list-product-grid')
+
+    console.log(documents)
     const name =
       document.querySelector('h1.font-bold.text-2xl')?.textContent ??
       'NOT FOUND'

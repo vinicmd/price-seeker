@@ -1,14 +1,12 @@
 /* link = 'https://www.amazon.es/-/pt/dp/B0BRXZXWLQ/' */
-import puppeteer from 'puppeteer'
 import type { Product } from '../../utils/types'
+import { scrapper } from '../scrapper'
 
 export async function scrapperAmazon(link: string): Promise<Product> {
-  const browser = await puppeteer.launch({ headless: false })
+  const browser = await scrapper.launch({ headless: false })
   const page = await browser.newPage()
-  await page.setViewport({ width: 1080, height: 1024 })
-  await page.setUserAgent(
-    'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36'
-  )
+  await page.setViewport({ width: 1380, height: 1024 })
+
   await page.goto(link)
   await page.waitForSelector('#productTitle')
 
